@@ -109,6 +109,11 @@ require_relative "../models/address_book"
           system "clear"
           puts "Please type entry number"
           
+          selection = gets.to_i
+
+          case selection
+          entry.index(selection)
+
           else
             system "clear"
             puts "#{selection} is not a valid input"
