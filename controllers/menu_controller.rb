@@ -65,7 +65,9 @@ require_relative "../models/address_book"
           system "clear"
           puts "New AddressBloc Entry"
           print "Name: "
+          name = gets.chomp
           print "Phone number: "
+          phone = gets.chomp
           print "Email: "
           email = gets.chomp
 
@@ -106,16 +108,15 @@ require_relative "../models/address_book"
          end
 
          def view_entry_number
-          system "clear"
           puts "Please type entry number"
           
-          selection = gets.to_i
+          selection = gets.chomp.to_i
 
-          case selection
-          entry.index(selection)
-
+          if selection.is_a? Integer
+            entry = @address_book.get_entry(selection)
+            puts entry.to_s << "\n\n"
           else
-            system "clear"
-            puts "#{selection} is not a valid input"
+            puts "Please enter a valid number."
           end
        end 
+     end

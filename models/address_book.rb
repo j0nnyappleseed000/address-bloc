@@ -8,6 +8,15 @@
    @entries = []
   end
 
+  def get_entry(index)
+    if index >= 1 && index < (entries.size + 1)
+      @entries[index - 1]
+    else
+      system "clear"
+      puts "The index you selected is out of range."
+    end
+  end
+
   def add_entry(name, phone, email)
    index = 0
    @entries.each do |entry|  
