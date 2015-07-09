@@ -80,32 +80,32 @@ RSpec.describe AddressBook do
 
    end
 
-   context ".import_from_csv_2" do
-     it "imports the correct number of entries" do
-       book.import_from_csv("entries_2.csv")
-       book_size = book.entries.size
+  context ".import_from_csv_2" do
+       it "imports the correct number of entries" do
+         book.import_from_csv("entries_2.csv")
+         book_size = book.entries.size
 
-       expect(book_size).to eql 3
-     end
+         expect(book_size).to eql 3
+       end
 
-      it "imports the 1st entry" do
-       book.import_from_csv("entries_2.csv")
-       entry_one = book.entries[0]
-       check_entry(entry_one, "Jonathan", "312-806-2751", "j0nnyappleseed000@mac.com")
+        it "imports the 1st entry" do
+         book.import_from_csv("entries_2.csv")
+         entry_one = book.entries[0]
+         check_entry(entry_one, "Jonathan", "312-806-2751", "j0nnyappleseed000@mac.com")
+        end
+
+        it "imports the 2nd entry" do
+         book.import_from_csv("entries_2.csv")
+         entry_two = book.entries[1]
+         check_entry(entry_two, "Randy", "501-623-2749", "steamyh20@aol.com")
+        end
+
+       it "imports the 3rd entry" do
+         book.import_from_csv("entries_2.csv")
+         entry_three = book.entries[2]
+         check_entry(entry_three, "Stacy", "312-513-4790", "stacymariemacdonald@gmail.com")
+        end
       end
-
-      it "imports the 2nd entry" do
-       book.import_from_csv("entries_2.csv")
-       entry_two = book.entries[1]
-       check_entry(entry_two, "Stacy", "312-513-4790", "stacymariemacdonald@gmail.com")
-      end
-
-     it "imports the 3rd entry" do
-       book.import_from_csv("entries_2.csv")
-       entry_three = book.entries[2]
-       check_entry(entry_three, "Randy", "501-282-4789", "steamyh20@aol.com")
-      end
-    end
 
   context "#remove_entry" do
      it "removes an entry using the name, phone_number, and email address" do
