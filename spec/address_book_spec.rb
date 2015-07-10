@@ -1,6 +1,7 @@
 require_relative '../models/address_book.rb'
  
 RSpec.describe AddressBook do  
+<<<<<<< HEAD
 
   let(:book) { AddressBook.new }
 
@@ -9,6 +10,15 @@ def check_entry(entry, expected_name, expected_number, expected_email)
   expect(entry.phone_number).to eql expected_number
   expect(entry.email).to eql expected_email
 end
+=======
+  let(:book) { AddressBook.new }
+
+  def check_entry(entry, expected_name, expected_number, expected_email)
+    expect(entry.name).to eql expected_name
+    expect(entry.phone_number).to eql expected_number
+    expect(entry.email).to eql expected_email
+  end
+>>>>>>> AB_ReadingCSVs
 
   context "attributes" do
      it "should respond to entries" do
@@ -24,8 +34,13 @@ end
      end
   end
 
+<<<<<<< HEAD
   context "#add_entry" do
      it "adds only one entry to the address book" do    
+=======
+  context ".add_entry" do
+     it "adds only one entry to the address book" do   
+>>>>>>> AB_ReadingCSVs
        book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
        
        expect(book.entries.size).to eq 1
@@ -41,6 +56,7 @@ end
      end
   end
 
+<<<<<<< HEAD
   context ".import_from_csv"
     it "imports the correct number of entries" do
       book.import_from_csv("entries.csv")
@@ -61,24 +77,61 @@ end
        entry_two = book.entries[1]
        check_entry(entry_two, "Bob", "555-555-5415", "bob@blocmail.com")
      end
+=======
+  context ".import_from_csv" do
+     it "imports the correct number of entries" do
+       book.import_from_csv("entries.csv")
+       book_size = book.entries.size
+
+       expect(book_size).to eql 5
+     end
+
+      it "imports the 1st entry" do
+       book.import_from_csv("entries.csv")
+       entry_one = book.entries[0]
+       check_entry(entry_one, "Bill", "555-555-4854", "bill@blocmail.com")
+      end
+
+      it "imports the 2nd entry" do
+       book.import_from_csv("entries.csv")
+       entry_two = book.entries[1]
+       check_entry(entry_two, "Bob", "555-555-5415", "bob@blocmail.com")
+      end
+>>>>>>> AB_ReadingCSVs
  
      it "imports the 3rd entry" do
        book.import_from_csv("entries.csv")
        entry_three = book.entries[2]
+<<<<<<< HEAD
        check_entry(entry_three, "Joe", "555-555-3660", "joe@blocmail.com"
      end
+=======
+       check_entry(entry_three, "Joe", "555-555-3660", "joe@blocmail.com")
+      end
+>>>>>>> AB_ReadingCSVs
  
      it "imports the 4th entry" do
        book.import_from_csv("entries.csv")
        entry_four = book.entries[3]
        check_entry(entry_four, "Sally", "555-555-4646", "sally@blocmail.com")
+<<<<<<< HEAD
      end
+=======
+      end
+>>>>>>> AB_ReadingCSVs
  
      it "imports the 5th entry" do
        book.import_from_csv("entries.csv")
        entry_five = book.entries[4]
        check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
+<<<<<<< HEAD
      end
+=======
+      end
+ 
+   end
+
+>>>>>>> AB_ReadingCSVs
   context "#remove_entry" do
      it "removes an entry using the name, phone_number, and email address" do
       book = AddressBook.new     
