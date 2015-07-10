@@ -14,7 +14,8 @@ require_relative "../models/address_book"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
      puts "5 - View Entry Number n"
-     puts "6 - Exit"
+     puts "6 - Annihilate all entries"
+     puts "7 - Exit"
      print "Enter your selection: "
 
      selection = gets.to_i
@@ -40,6 +41,10 @@ require_relative "../models/address_book"
               view_entry_number
               main_menu
            when 6
+              system "clear"
+              annihilate_entries
+              main_menu
+           when 7
              puts "Good-bye!"
              exit(0)
            else
@@ -94,6 +99,14 @@ require_relative "../models/address_book"
         def delete_entry(entry)
           @address_book.entries.delete(entry)
           puts "#{entry.name} has been deleted"
+        end
+
+
+        def annihilate_entries(entry)
+          @address_book.entries.delete.each do |entry|
+          end
+          system "clear"
+          puts "All entries have been annihilated at your convenience"
         end
        
        def edit_entry(entry)
@@ -192,7 +205,7 @@ require_relative "../models/address_book"
             entry = @address_book.get_entry(selection)
             puts entry.to_s << "\n\n"
           else
-            puts "Please enter a valid number."
+            puts "Please enter a valid number"
           end
        end 
      end
