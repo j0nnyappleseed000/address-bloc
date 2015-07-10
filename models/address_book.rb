@@ -67,6 +67,18 @@
      return nil
    end
 
-    @entries.delete_at(index)
+    def iterative_search(name)
+      i = 0 
+      entries.each do |entry|
+      entry_name = entries[i].name
+        i += 1
+        if name == entry_name
+          return entry
+        end
+      end
+
+     return nil
   end
+    @entries.delete_at(index)
  end
+end
