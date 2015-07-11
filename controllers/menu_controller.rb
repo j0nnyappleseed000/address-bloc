@@ -102,9 +102,8 @@ require_relative "../models/address_book"
         end
 
 
-        def annihilate_entries(entry)
-          @address_book.entries.delete.each do |entry|
-          end
+        def annihilate_entries
+          @address_book.entries.clear
           system "clear"
           puts "All entries have been annihilated at your convenience"
         end
@@ -158,7 +157,7 @@ require_relative "../models/address_book"
            case selection
            when "n"
            when "d"
-            delete_entry
+            delete_entry(entry)
            when "e"
             edit_entry(entry)
             entry_submenu(entry)
